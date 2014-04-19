@@ -70,13 +70,24 @@ write_uint8(uint8_t *buf, unsigned int offset, unsigned int arg) {
     return offset;
 }
 
+#include <sys/time.h>
+//clock_gettime is not implemented on OSX
+int clock_gettime(int clk_id, struct timespec* t) {
+    struct timeval now;
+    int rv = gettimeofday(&now, NULL);
+    if (rv) return rv;
+    t->tv_sec  = now.tv_sec;
+    t->tv_nsec = now.tv_usec * 1000;
+    return 0;
+}
+
 // Returns a timestamp in milliseconds, should only be used
 // for relative calculations (i.e. durations).
 // This timestamp *should* be monotonic.
 int64_t
 get_relative_timestamp(void) {
     struct timespec ts;
-    if (clock_gettime(CLOCK_MONOTONIC_RAW, &ts) != 0) {
+    if (clock_gettime(0, &ts) != 0) {
         return INT64_MIN;
     }
     return ((int64_t)ts.tv_sec) * 1000 + (ts.tv_nsec / 1000000);
