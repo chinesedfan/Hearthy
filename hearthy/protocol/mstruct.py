@@ -65,7 +65,7 @@ class MString:
         except UnicodeDecodeError as e:
             raise DecodeError(e.reason)
 
-class MStruct:
+class MStruct(object):
     _mfields_ = {}
     __slots__ = []
 

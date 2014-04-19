@@ -51,7 +51,7 @@ def parse_cdump(f):
 if __name__ == '__main__':
     import sys
     if len(sys.argv) < 2:
-        print('Usage: {0} <file>'.format(sys.argv[0]), file=sys.stderr)
+        print >>sys.stderr, ('Usage: {0} <file>'.format(sys.argv[0]))
         sys.exit(1)
 
     with open(sys.argv[1], 'r') as f:

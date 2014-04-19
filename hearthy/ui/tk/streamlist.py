@@ -1,5 +1,5 @@
-import tkinter
-from tkinter import ttk
+import Tkinter as tkinter
+import ttk
 from hearthy.tracker.processor import Processor
 
 from datetime import datetime

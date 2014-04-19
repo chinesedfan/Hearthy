@@ -1,5 +1,5 @@
 import threading
-import queue
+import Queue as queue
 
 from hearthy.datasource import hcapng
 from hearthy.protocol.utils import Splitter

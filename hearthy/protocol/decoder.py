@@ -59,7 +59,7 @@ if __name__ == '__main__':
     from .utils import Splitter
 
     if len(sys.argv) < 2:
-        print('Usage: {0} <raw dump file>'.format(sys.argv[0]), file=sys.stderr)
+        print >>sys.stderr, ('Usage: {0} <raw dump file>'.format(sys.argv[0]))
         sys.exit(1)
 
     with open(sys.argv[1], 'rb'):

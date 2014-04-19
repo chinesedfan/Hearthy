@@ -15,7 +15,7 @@ def hexdump(src, length=16, sep='.', file=sys.stdout):
         shex = ' '.join('{0:02x}'.format(x) for x in buf)
         printable = ''.join("%s" % ((x <= 127 and FILTER[x]) or sep) for x in buf)
         lines.append('{0:08x}:  {2:{1}}  |{3}|'.format(c, length*3-1, shex, printable))
-    print('\n'.join(lines), file=file)
+    print >>file, ('\n'.join(lines))
 
 _gametag_to_enum = {
     GameTag.ZONE: Zone,

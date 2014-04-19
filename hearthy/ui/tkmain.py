@@ -1,5 +1,5 @@
-import tkinter
-from tkinter import ttk
+import Tkinter as tkinter
+import ttk
 
 from hearthy.ui.tk.streamlist import StreamList
 from hearthy.ui.common import AsyncLogGenerator
@@ -7,7 +7,7 @@ from hearthy.datasource import hcapng
 
 class Application(ttk.Frame):
     def __init__(self, master=None):
-        super().__init__(master)
+        ttk.Frame.__init__(self, master)
         self.pack(expand=True, fill='both')
         self._build_widgets()
         self._streams = StreamList(self._streams_frame)

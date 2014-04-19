@@ -1,5 +1,5 @@
-import tkinter
-from tkinter import ttk
+import Tkinter as tkinter
+import ttk
 from hearthy.protocol.mstruct import MStruct
 
 class StreamView:
