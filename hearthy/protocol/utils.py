@@ -4,8 +4,8 @@ import struct
 from hearthy import exceptions
 from hearthy.protocol.enums import *
 
-# 16K ought to be enough for anybody :)
-MAX_BUF = 16 * 1024
+# 1MB ought to be enough for anybody :)
+MAX_BUF = 1024 * 1024
 
 def hexdump(src, length=16, sep='.', file=sys.stdout):
     FILTER = ''.join([(len(repr(chr(x))) == 3) and chr(x) or sep for x in range(256)])
