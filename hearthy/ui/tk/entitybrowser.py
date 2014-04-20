@@ -9,7 +9,7 @@ ALL_TAGS = sorted([x.capitalize() for x in GameTag.reverse.values()])
 
 class EntityFilter(ttk.Frame):
     def __init__(self, parent):
-        super().__init__(parent)
+        ttk.Frame.__init__(self, parent)
         
         self.tag = tkinter.StringVar()
         self.test = tkinter.StringVar()
